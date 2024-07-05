@@ -11,6 +11,7 @@ import urllib.request
 if __name__ == "__main__":
     url = sys.argv[1]
 
-    request = urllib.request.Request(url)
-    with urllib.request.urlopen(request) as response:
-        print(dict(response.headers).get("X-Request-Id"))
+	value = {"email": sys.argv[2]}
+
+    r = requests.post(url, data=value)
+    print(r.text)
